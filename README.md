@@ -164,7 +164,6 @@ Para achar semanas seguidas com DSR perdido usei a técnica de *gaps and islands
 | 14 | Déficits de 3 a 10 minutos (65 dias) | ponto | Não descontados (P2) |
 | 15 | `flag_dsr = 1` em dias de trabalho | ponto | Ignorado; o DSR é calculado pela semana (P15) |
 | 16 | ESC_44H descrita como 8,8h × 5 + 4,4h, que soma 48,4h | escalas | Vale o contrato de 44h, que bate com o divisor 220 (P11) |
-| 17 | Caracteres perdidos no template (`Opera��es`) | planilha | Não há como recuperar e são colunas dos gestores; ficaram como estão (P13) |
 
 Tudo isso está em `rh_marts.mart_qualidade_dados` (291 ocorrências: 20 de severidade alta, 21 média e 250 informativas) e na página 4 do painel.
 
@@ -186,7 +185,7 @@ O briefing pede para registrar as decisões tomadas onde os dados ou as regras n
 | P10 | Todo código de abono justifica a ausência. `DECLARACAO_HORAS` no dia inteiro é abonada, mas marcada para validação. | Uma declaração de horas costuma cobrir só parte do dia. |
 | P11 | A jornada semanal vem do contrato (44h, 40h, 36h); para a 12x36 uso a média de 42h. | A descrição da ESC_44H soma 48,4h, o que contradiz o contrato e o divisor. |
 | P12 | Marcações antes da admissão ou depois do desligamento são descartadas. | Sem vínculo não há jornada a cumprir. |
-| P13 | O pipeline escreve só em `Total_Faltas_Injustificadas`, `Total_DSR_Perdido`, `Acao_Disciplinar_Recomendada` e `Data_Ultimo_Processamento`. | O resto da planilha é dos gestores, inclusive os nomes com acento quebrado. |
+| P13 | O pipeline escreve só em `Total_Faltas_Injustificadas`, `Total_DSR_Perdido`, `Acao_Disciplinar_Recomendada` e `Data_Ultimo_Processamento`. | O resto da planilha é dos gestores. Nome, departamento e gestor também não são reescritos, mesmo que o cadastro mude. |
 | P14 | Entram no cálculo os colaboradores ativos em algum dia do período. Trabalho em dia de folga não entra no desconto. | Hora extra é outra política. |
 | P15 | O campo `flag_dsr` não é usado. | Ele contradiz a escala em vários dias. |
 | P16 | A correção de acentos é a única limpeza feita em Python. | É um problema de leitura do arquivo, não do conteúdo. O resto da limpeza está em SQL. |

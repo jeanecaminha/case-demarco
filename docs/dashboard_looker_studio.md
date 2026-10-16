@@ -2,7 +2,7 @@
 
 O painel responde, nesta ordem, às perguntas da diretoria: **quanto custa → onde está → quando acontece → quem precisa de ação → quanto confiar nos números**. Cada página responde a uma delas.
 
-Relatório: **Absenteísmo e Custo de DSR — Case DeMarco** (4 páginas, canvas 1440 × 1160): https://datastudio.google.com/reporting/52f463dd-8798-4f54-a870-84cdcafe403c
+Relatório: **Absenteísmo e Custo de DSR — Case Demarco** (4 páginas, canvas 1440 × 1160): https://datastudio.google.com/reporting/52f463dd-8798-4f54-a870-84cdcafe403c
 
 ## 1. Fontes de dados
 

@@ -1,4 +1,4 @@
-# Case DeMarco: absenteísmo, DSR e ações disciplinares
+# Case Demarco: absenteísmo, DSR e ações disciplinares
 
 Solução ponta a ponta para o desafio de Gente & Gestão: ingestão dos arquivos brutos, saneamento, aplicação das regras de negócio (faltas, DSR, custo e régua disciplinar) no **BigQuery**, painel no **Looker Studio** e **Reverse ETL** para a planilha dos gestores no **Google Sheets**, preservando o histórico manual.
 

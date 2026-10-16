@@ -32,7 +32,7 @@ Destaques para a diretoria:
 ## 2. Arquitetura
 
 ```mermaid
-flowchart LR
+flowchart TB
     A[Arquivos brutos<br/>.xlsx / .csv] -->|extract.py<br/>tudo como texto| B[(rh_raw)]
     B -->|SQL staging| C[(rh_staging<br/>stg_* / int_*)]
     C -->|SQL marts| D[(rh_marts)]

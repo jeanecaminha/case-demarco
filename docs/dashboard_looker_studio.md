@@ -1,82 +1,54 @@
-# Dashboard no Looker Studio (Data Studio)
+# Painel no Looker Studio
 
-O painel responde, nesta ordem, às perguntas da diretoria: **quanto custa → onde está → quando acontece → quem precisa de ação → quanto confiar nos números**. Cada página responde a uma delas.
+Link: https://datastudio.google.com/reporting/52f463dd-8798-4f54-a870-84cdcafe403c
 
-Relatório: **Absenteísmo e Custo de DSR — Case Demarco** (4 páginas, canvas 1440 × 1160): https://datastudio.google.com/reporting/52f463dd-8798-4f54-a870-84cdcafe403c
+O painel tem 4 páginas e segue a ordem das perguntas da diretoria: quanto custa, quando as faltas acontecem, quem precisa de ação e quanto dá para confiar nos números.
 
-## 1. Fontes de dados
+## Fontes
 
-Conector BigQuery, projeto `desafio-demarco`, dataset `rh_marts`, com as credenciais do proprietário:
+Conector do BigQuery, projeto `desafio-demarco`, dataset `rh_marts`, usando as credenciais da dona do relatório. Assim quem abre o painel não precisa de acesso ao projeto.
 
-| Fonte | Tabela | Usada em |
-|---|---|---|
-| `mart_absenteismo_colaborador` | `rh_marts.mart_absenteismo_colaborador` | Páginas 1 e 3 |
-| `fct_ponto_diario` | `rh_marts.fct_ponto_diario` | Páginas 1 e 2 |
-| `mart_qualidade_dados` | `rh_marts.mart_qualidade_dados` | Página 4 |
+| Fonte | Usada nas páginas |
+|---|---|
+| `mart_absenteismo_colaborador` | 1 e 3 |
+| `fct_ponto_diario` | 1 e 2 |
+| `mart_qualidade_dados` | 4 |
 
-Os marts já trazem **contadores 0/1** (`qtd_faltas_injustificadas`, `qtd_suspensao`, `qtd_alta` etc.) e rótulos prontos (`colaborador` = `Nome (ID)`, `dia_semana_ordem` = `1 Seg`…`7 Dom`, `alerta_dado_estimado`). Assim, o BI só soma: a regra de negócio fica no SQL, versionada e testada.
+As tabelas já chegam com contadores de 0 ou 1 (`qtd_faltas_injustificadas`, `qtd_suspensao`, `qtd_alta` etc.) e com rótulos prontos, como `colaborador` no formato "Nome (ID)" e `dia_semana_ordem` de "1 Seg" a "7 Dom". O painel só soma; as regras ficam no SQL.
 
-Só dois campos calculados ficam no Looker, porque são razões e não podem ser somadas linha a linha:
+Os únicos campos calculados no painel são dois percentuais, porque percentual não se soma linha a linha:
 
 ```
--- fonte mart_absenteismo_colaborador (formato: percentual)
 Taxa de absenteísmo injustificado = SUM(horas_faltadas_injustificadas) / SUM(horas_previstas)
-
--- fonte fct_ponto_diario (formato: percentual)
 % faltas em segunda ou sexta = SUM(qtd_faltas_segunda_ou_sexta) / SUM(qtd_faltas_injustificadas)
 ```
 
-Na fonte `mart_absenteismo_colaborador`, os campos exibidos foram renomeados (Colaborador, Departamento, Gestor, Ação recomendada, Faltas, DSRs perdidos, DSRs seguidos, Desconto, Dado estimado).
+## Páginas
 
-## 2. Visual
+**1. Visão executiva.** Desconto total em destaque (R$ 11.083,27), faltas, DSRs perdidos, colaboradores com ação e taxa de absenteísmo. Abaixo: desconto por departamento separado em faltas, atrasos e DSR; desconto por gestor; evolução por semana; e quanto cada parte pesa no total.
 
-- **Fundo de cada página** é uma imagem gerada por [`dashboard/gerar_fundos.py`](dashboard/gerar_fundos.py): faixa de cabeçalho navy, cartões brancos com título e subtítulo, e o cartão de destaque escuro. Os gráficos nativos ficam por cima, com fundo transparente. Para mudar textos ou layout, edite o script e rode `python docs/dashboard/gerar_fundos.py` (requer Chrome); depois troque a imagem em cada página.
-- Tema: fonte Roboto, fundo `#F3F4F6`. As cores dos componentes são fixas em todas as páginas: faltas `#2a78d6`, atrasos `#1baf7a`, DSR `#eb6834`.
-- Severidade: ALTA em vermelho (`#9B1C1C` sobre `#FDECEC`), MÉDIA em âmbar (`#8A5A00` sobre `#FEF5E1`), INFO neutra.
-- Controles **Departamento** e **Gestor** no cabeçalho de todas as páginas.
+**2. Padrão de emenda.** Responde à suspeita do briefing sobre segundas e sextas: 90% das faltas caem nesses dias. Tem faltas por dia da semana, um mapa de calor de departamento por dia, outro de semana por departamento e a lista de quem mais falta em segunda ou sexta.
 
-## 3. Páginas
+**3. Ações disciplinares.** Quantas pessoas em cada nível da régua e a tabela por colaborador, ordenada pela gravidade da ação e pelo desconto. As suspensões aparecem em vermelho. A coluna "Dias c/ atraso" explica por que alguém sem faltas pode ter desconto: o atraso entra no custo, mas não na régua.
 
-### Página 1: Visão executiva (diretoria)
+**4. Qualidade dos dados.** As 291 ocorrências separadas por severidade (20 alta, 21 média, 250 informativas), a contagem por tipo e o detalhe de cada uma, com o valor encontrado e o que foi feito.
 
-| Bloco | Componente |
-|---|---|
-| KPIs | **Desconto total** R$ 11.083,27 (cartão de destaque) · Faltas injustificadas 30 · DSRs perdidos 30 · Com ação disciplinar 10 · Taxa de absenteísmo 1,31% |
-| Onde está o custo | Colunas empilhadas por departamento: faltas, atrasos e DSR perdido |
-| Custo por gestor | Tabela com barra de desconto, faltas e quantidade de colaboradores com ação |
-| Evolução semanal | Colunas empilhadas por `semana_inicio` (segunda a domingo), mesmos três componentes |
-| Composição do desconto | Valores de faltas (R$ 5.437,54), atrasos (R$ 1.025,89) e DSR (R$ 4.619,79) |
+Os filtros de Departamento e Gestor ficam no topo de todas as páginas.
 
-### Página 2: Padrão de emenda de fim de semana
+## Escolhas de design
 
-| Bloco | Componente |
-|---|---|
-| KPIs | % das faltas em segunda ou sexta **90%** · faltas na segunda 16 · faltas na sexta 11 · faltas coladas à folga 21 |
-| Faltas por dia da semana | Colunas por `dia_semana_ordem` |
-| Departamento × dia da semana | Tabela dinâmica com mapa de calor |
-| Recorrência semana a semana | Tabela dinâmica `Semana de` (dd/MM) × departamento, com mapa de calor |
-| Quem mais emenda | Tabela com barra: faltas em segunda ou sexta vs. faltas no total, por colaborador |
+- O número que mais importa, o desconto total, fica sozinho num cartão escuro no topo.
+- O custo aparece sempre dividido em faltas, atrasos e DSR, com as mesmas cores em todas as páginas. O DSR é 42% do desconto e era o item que os gestores não calculavam.
+- Pessoas aparecem como "Nome (ID)", porque a base tem homônimos.
+- A tabela de ações marca quando o custo usou salário ou escala estimados, para ninguém aplicar uma suspensão sem saber disso.
+- Onde os nomes são longos (gestores, tipos de ocorrência), usei tabela com barra no lugar de gráfico de barras, para o nome aparecer inteiro.
 
-### Página 3: Ações disciplinares (BPs e gestores)
+## Visual
 
-- KPIs por nível da régua: Suspensão 7 · Advertência escrita 2 · Alinhamento em 1-on-1 1 · Sem ação 30.
-- Tabela de recomendações por colaborador, ordenada por `nivel_acao` desc e desconto desc: Colaborador, Departamento, Gestor, Ação recomendada, Dado estimado, Faltas, Dias c/ atraso, DSRs perdidos, DSRs seguidos, Desconto. Linhas de suspensão destacadas em vermelho.
-- A coluna **Dias c/ atraso** explica por que quem tem 0 faltas pode ter desconto: atrasos e saídas antecipadas acima da tolerância de 10 min entram nas horas faltadas descontadas, mas não contam na régua disciplinar (que considera só faltas injustificadas).
+O fundo de cada página é uma imagem gerada por `docs/dashboard/gerar_fundos.py` (cabeçalho, cartões e títulos). Os gráficos do Looker Studio ficam por cima, com fundo transparente. Para mudar um título, edite o script, rode `python docs/dashboard/gerar_fundos.py` e troque a imagem da página.
 
-### Página 4: Qualidade dos dados
+Fonte Roboto. Cores fixas: faltas `#2a78d6`, atrasos `#1baf7a`, DSR `#eb6834`. Severidade alta em vermelho e média em âmbar.
 
-- KPIs: 291 ocorrências tratadas · 20 de severidade ALTA · 21 MÉDIA · 250 informativas.
-- **Ocorrências por tipo**: tabela com barra (`tipo_ocorrencia` × quantidade), com linhas coloridas por severidade.
-- **Detalhe das ocorrências**: Severidade, Ocorrência, ID, Data, Valor encontrado, Tratamento aplicado e Qtd, ordenado por severidade. As linhas ALTA ficam destacadas.
+## Compartilhamento
 
-## 4. Compartilhamento
-
-**Compartilhar → Gerenciar acesso → Qualquer pessoa com o link pode ver**. As fontes usam as **credenciais do proprietário** (padrão do conector BigQuery), para que a banca não precise de acesso ao projeto GCP.
-
-## 5. Decisões de usabilidade
-
-- **Hierarquia**: os números absolutos ficam no topo e o detalhe por pessoa fica na página 3. A diretoria lê a página 1 em menos de 30 segundos.
-- **Decomposição do custo** (faltas × atrasos × DSR): o DSR responde por cerca de 42% do desconto, e era justamente o item que os líderes não calculavam.
-- **Gestor com ID** (`Nome (EMP_xxx)`): a base tem homônimos, e agrupar só pelo nome misturaria pessoas diferentes.
-- **Sinal de dado estimado** na tabela de ações: um BP não deve aplicar uma suspensão sem saber que o salário usado no custo foi imputado.
-- **Tabela com barra em vez de barras horizontais** quando os rótulos são longos (gestores, tipos de ocorrência): o rótulo aparece inteiro e o número fica ao lado da barra.
+O relatório está aberto para qualquer pessoa com o link, só para visualização.

@@ -1,33 +1,31 @@
 # Case Demarco: absenteísmo, DSR e ações disciplinares
 
-Solução ponta a ponta para o desafio de Gente & Gestão: ingestão dos arquivos brutos, saneamento, aplicação das regras de negócio (faltas, DSR, custo e régua disciplinar) no **BigQuery**, painel no **Looker Studio** e **Reverse ETL** para a planilha dos gestores no **Google Sheets**, preservando o histórico manual.
+Pipeline que lê os arquivos de RH, trata os problemas dos dados, calcula faltas, DSR perdido, desconto e a ação disciplinar de cada colaborador no BigQuery, alimenta um painel no Looker Studio e atualiza a planilha dos gestores no Google Sheets sem mexer no que eles escreveram à mão.
 
-**Links da entrega**
-- Painel (Looker Studio / Data Studio): https://datastudio.google.com/reporting/52f463dd-8798-4f54-a870-84cdcafe403c
-- Planilha dos gestores atualizada pelo Reverse ETL: https://docs.google.com/spreadsheets/d/149LJSDgzEqJDN8pHLvfOnsPfZHE3XE0L9xUnFLH6nCk
+**Links**
+- Painel: https://datastudio.google.com/reporting/52f463dd-8798-4f54-a870-84cdcafe403c
+- Planilha dos gestores atualizada: https://docs.google.com/spreadsheets/d/149LJSDgzEqJDN8pHLvfOnsPfZHE3XE0L9xUnFLH6nCk
 
----
-
-## 1. Resultado (Jun–Ago/2025)
+## 1. Resultado (junho a agosto de 2025)
 
 | Indicador | Valor |
 |---|---|
-| Desconto total apurado | **R$ 11.083,27** |
-| ↳ horas de faltas integrais | R$ 5.437,54 |
-| ↳ atrasos e saídas antecipadas (acima da tolerância) | R$ 1.025,89 |
-| ↳ DSRs perdidos | R$ 4.619,79 (**42%** do custo) |
-| Faltas injustificadas / DSRs perdidos | 30 / 30 |
+| Desconto total | **R$ 11.083,27** |
+| Parte das faltas (dias inteiros) | R$ 5.437,54 |
+| Parte dos atrasos e saídas antecipadas | R$ 1.025,89 |
+| Parte dos DSRs perdidos | R$ 4.619,79 (42% do total) |
+| Faltas injustificadas | 30 |
+| DSRs perdidos | 30 |
 | Taxa de absenteísmo injustificado | 1,31% das horas previstas |
-| Faltas em segunda ou sexta-feira | **27 de 30 (90%)**: o padrão de "emenda" se confirma |
-| Ações recomendadas | 7 Suspensões · 2 Advertências · 1 Alinhamento 1-on-1 · 30 sem ação |
+| Faltas em segunda ou sexta | 27 de 30 (90%) |
+| Ações recomendadas | 7 suspensões, 2 advertências, 1 alinhamento, 30 sem ação |
 
-Destaques para a diretoria:
-- **Operações** (R$ 3,9 mil) e **Logística** (R$ 3,4 mil) concentram 66% do custo.
-- **EMP_022** tem só 2 faltas, mas em semanas consecutivas (2 DSRs seguidos). Pela régua isso é **Suspensão**, não Advertência. É exatamente o caso que uma contagem simples de faltas deixaria passar.
-- **TI não tem gestor cadastrado**: R$ 1,8 mil de custo e uma suspensão recomendada (EMP_033) sem ninguém responsável na hierarquia.
-- 4 das 10 ações recomendadas dependem de **dado estimado** (salário imputado ou escala inferida). Elas aparecem sinalizadas no painel e no mart de qualidade.
-
----
+O que mais chamou atenção:
+- Operações (R$ 3,9 mil) e Logística (R$ 3,4 mil) somam 66% do desconto.
+- A suspeita de "emenda" se confirma: 27 das 30 faltas caíram numa segunda ou sexta.
+- A EMP_022 tem só 2 faltas, mas em semanas seguidas, e perdeu 2 DSRs em sequência. Pela régua isso já é suspensão, não advertência.
+- O time de TI está sem gestor no cadastro, com R$ 1,8 mil de desconto e uma suspensão recomendada (EMP_033).
+- 4 das 10 ações recomendadas usam salário ou escala estimados. No painel elas aparecem marcadas como "Estimado".
 
 ## 2. Arquitetura
 
@@ -37,52 +35,43 @@ flowchart TB
     B -->|SQL staging| C[(rh_staging<br/>stg_* / int_*)]
     C -->|SQL marts| D[(rh_marts)]
     D --> E[Looker Studio]
-    D -->|reverse_etl.py<br/>só colunas calculadas| F[Google Sheets<br/>planilha dos gestores]
     D -->|99_tests| G{Testes de<br/>qualidade}
-    G -. falha bloqueia .-> F
+    G -->|passou| F[Google Sheets<br/>planilha dos gestores]
 ```
 
-| Camada | Dataset | Conteúdo | Princípio |
-|---|---|---|---|
-| Raw | `rh_raw` | Arquivos como chegaram, todas as colunas `STRING` + linhagem (`_arquivo_origem`, `_linha_origem`, `_carregado_em`) | Fiel à fonte: nenhum ruído quebra a ingestão |
-| Staging | `rh_staging` | `stg_*`: tipagem e padronização. `int_*`: deduplicação, inferências e regras de negócio | Toda limpeza em SQL, auditável |
-| Marts | `rh_marts` | Tabelas prontas para consumo (painel e Reverse ETL) | Um grão claro por tabela |
+| Camada | Dataset | O que tem |
+|---|---|---|
+| Raw | `rh_raw` | Os arquivos como chegaram, tudo como texto, com o nome do arquivo e o número da linha de origem. Assim nenhum dado sujo derruba a carga. |
+| Staging | `rh_staging` | `stg_*` tipa e padroniza cada arquivo. `int_*` remove duplicatas, completa o que falta e aplica as regras de negócio. |
+| Marts | `rh_marts` | As tabelas finais, usadas pelo painel e pela planilha. |
 
-**Um SQL, dois motores.** As queries são escritas em dialeto BigQuery. No modo `--alvo local`, o mesmo SQL é transpilado com `sqlglot` e executado no DuckDB. Isso permite desenvolver e testar sem nuvem e mantém uma única fonte de verdade para as regras de negócio.
-
----
+Todo o SQL está escrito para o BigQuery. Para conseguir testar sem nuvem, o modo local traduz o mesmo SQL para DuckDB com a biblioteca `sqlglot`. A regra de negócio existe num lugar só.
 
 ## 3. Estrutura do repositório
 
 ```
 case-demarco/
-├── pipeline.py                  # ponto de entrada (CLI)
+├── pipeline.py              comando que roda tudo
 ├── src/
-│   ├── config.py                # parâmetros (período, tolerância, datasets, planilha)
-│   ├── extract.py               # leitura dos arquivos -> raw (+ reparo de encoding)
-│   ├── warehouse.py             # BigQuery | DuckDB (mesma interface)
-│   ├── transform.py             # executa sql/ em ordem e roda os testes
-│   └── reverse_etl.py           # atualização segura da planilha dos gestores
+│   ├── config.py            parâmetros (período, datasets, planilha)
+│   ├── extract.py           leitura dos arquivos para a raw
+│   ├── warehouse.py         conexão com BigQuery ou DuckDB
+│   ├── transform.py         roda os SQL em ordem e os testes
+│   └── reverse_etl.py       atualização da planilha dos gestores
 ├── sql/
-│   ├── 01_staging/              # stg_escalas, stg_colaboradores, stg_ponto
-│   ├── 02_intermediate/         # int_colaboradores, int_ponto_diario, int_semanas_dsr
-│   ├── 03_marts/                # fct_ponto_diario, mart_absenteismo_colaborador,
-│   │                            # rpt_acoes_disciplinares, mart_qualidade_dados
-│   └── 99_tests/                # testes de dados (devem retornar 0 linhas)
-├── tests/test_reverse_etl.py    # testes unitários (preservação do histórico, encoding)
-├── docs/dashboard_looker_studio.md
-├── data/
-│   ├── raw/                     # arquivos recebidos
-│   └── processed/               # marts exportados em CSV + planilha atualizada (modo local)
-├── requirements.txt
-└── .env.example
+│   ├── 01_staging/
+│   ├── 02_intermediate/
+│   ├── 03_marts/
+│   └── 99_tests/            testes de dados (devem voltar 0 linhas)
+├── tests/                   testes do Reverse ETL
+├── docs/                    documentação do painel
+├── data/raw/                arquivos recebidos
+└── data/processed/          tabelas finais em CSV e a planilha atualizada (modo local)
 ```
 
----
+## 4. Como rodar
 
-## 4. Como executar
-
-### 4.1 Modo local (sem nuvem, para validar em 1 minuto)
+**Local, sem nuvem:**
 
 ```bash
 pip install -r requirements.txt
@@ -90,160 +79,139 @@ python pipeline.py --alvo local
 python -m pytest tests
 ```
 
-Gera `data/warehouse.duckdb`, os marts em `data/processed/*.csv` e `data/processed/template_acoes_disciplinares_atualizado.xlsx`, que é o template com as colunas calculadas preenchidas e o histórico intacto.
+Gera as tabelas finais em `data/processed/` e uma cópia do template com as colunas calculadas preenchidas.
 
-### 4.2 Produção (BigQuery + Google Sheets)
+**BigQuery e Google Sheets:**
 
-1. **GCP**: ative as APIs *BigQuery*, *Google Sheets* e *Google Drive*. Crie uma service account com os papéis **BigQuery Data Editor** e **BigQuery Job User** e baixe a chave JSON.
-2. **Planilha**: importe `template_acoes_disciplinares.xlsx` para o Google Sheets (Arquivo → Importar) e **compartilhe como Editor com o e-mail da service account**.
-3. **Configuração**: copie `.env.example` para `.env` e preencha `GCP_PROJECT_ID`, `GOOGLE_APPLICATION_CREDENTIALS` e `GSHEETS_SPREADSHEET_ID`.
-4. **Execução**:
-   ```bash
-   python pipeline.py --alvo bigquery --etapas reverse_etl --simular   # opcional: mostra o que seria gravado
-   python pipeline.py --alvo bigquery
-   ```
-5. **Painel**: siga [docs/dashboard_looker_studio.md](docs/dashboard_looker_studio.md).
+1. No Google Cloud, ative as APIs do BigQuery, Google Sheets e Google Drive. Crie uma conta de serviço com os papéis BigQuery Data Editor e BigQuery Job User.
+2. Importe o `template_acoes_disciplinares.xlsx` no Google Sheets e compartilhe a planilha como Editor com o e-mail da conta de serviço.
+3. Copie `.env.example` para `.env` e preencha o projeto, o caminho da chave e o ID da planilha.
+4. Rode `python pipeline.py --alvo bigquery`. Para ver o que seria gravado na planilha antes de gravar: `python pipeline.py --alvo bigquery --etapas reverse_etl --simular`.
 
-Etapas disponíveis em `--etapas`: `extrair, transformar, testar, exportar, reverse_etl`. Se um teste falhar, o pipeline para **antes** de tocar na planilha dos gestores.
+As etapas são `extrair, transformar, testar, exportar, reverse_etl`. Se algum teste falhar, o pipeline para antes de chegar na planilha.
 
-### 4.3 Orquestração em produção
+**Agendamento.** Pela periodicidade dos arquivos, eu agendaria dois jobs (Cloud Scheduler com Cloud Run, ou Airflow):
 
-As periodicidades do briefing definem dois agendamentos (ex.: **Cloud Run Job + Cloud Scheduler**, ou duas DAGs no Airflow/Composer):
-
-| Job | Quando | Etapas | Motivo |
+| Job | Quando | Etapas | Por quê |
 |---|---|---|---|
-| Diário | 05:00 | `extrair,transformar,testar` | Ponto (D-1) e cadastro chegam diariamente |
-| Semanal | segunda, 06:00 | `transformar,testar,reverse_etl` | Os gestores usam a planilha às segundas; ela precisa estar atualizada antes |
+| Diário | 05:00 | extrair, transformar, testar | Cadastro e ponto chegam todo dia |
+| Semanal | segunda, 06:00 | transformar, testar, reverse_etl | Os gestores usam a planilha às segundas |
 
-`escalas` muda só quando há nova regra contratual, mas a carga completa é barata e mantém o pipeline simples. Para produção, o próximo passo é tornar a carga do ponto **incremental**: append particionado por data de ingestão na raw. A deduplicação em `int_ponto_diario` já resolve reenvios, porque escolhe uma linha por colaborador e dia.
+Hoje cada execução recarrega tudo, o que é simples e suficiente para esse volume. Em produção, o ponto deveria entrar de forma incremental.
 
----
+## 5. Tabelas
 
-## 5. Modelo de dados
-
-| Tabela | Grão | Para quê |
+| Tabela | Uma linha por | Para quê |
 |---|---|---|
-| `stg_escalas` | escala | Tipagem e jornada semanal contratual |
-| `stg_colaboradores` | linha do cadastro | Salário convertido, datas, duplicatas sinalizadas |
-| `stg_ponto` | linha do ponto | Tipagem, código de abono padronizado, duplicatas sinalizadas |
-| `int_colaboradores` | colaborador | ID único, escala/salário resolvidos, status do gestor |
-| `int_ponto_diario` | colaborador × dia | **Classificação do dia** (`status_dia`) e horas injustificadas |
-| `int_semanas_dsr` | colaborador × semana | Perda de DSR e **sequências de semanas consecutivas** |
-| `fct_ponto_diario` | colaborador × dia | Fato do painel. O custo do DSR é atribuído à 1ª falta da semana, então qualquer recorte soma o total |
-| `mart_absenteismo_colaborador` | colaborador | Custos, régua disciplinar, motivo, sinal de dado estimado |
-| `rpt_acoes_disciplinares` | colaborador | Contrato de saída do Reverse ETL (colunas com o nome da planilha) |
-| `mart_qualidade_dados` | ocorrência | Cada ruído encontrado, sua severidade e o tratamento aplicado |
-
----
+| `stg_escalas` | escala | Jornada semanal e divisor de cada escala |
+| `stg_colaboradores` | linha do cadastro | Salário e datas convertidos, duplicatas marcadas |
+| `stg_ponto` | linha do ponto | Tipos e código de abono padronizados, duplicatas marcadas |
+| `int_colaboradores` | colaborador | Cadastro sem duplicatas, com escala, salário e gestor resolvidos |
+| `int_ponto_diario` | colaborador por dia | Status de cada dia e horas a descontar |
+| `int_semanas_dsr` | colaborador por semana | DSR perdido e semanas seguidas com perda |
+| `fct_ponto_diario` | colaborador por dia | Base dos gráficos por dia e semana. O custo do DSR fica na 1ª falta da semana, para a soma bater em qualquer recorte |
+| `mart_absenteismo_colaborador` | colaborador | Custos, régua disciplinar e motivo da ação |
+| `rpt_acoes_disciplinares` | colaborador | O que vai para a planilha, com os nomes de coluna dela |
+| `mart_qualidade_dados` | problema encontrado | Cada problema dos dados e o que foi feito com ele |
 
 ## 6. Regras de negócio
 
-**Classificação de cada dia** (`int_ponto_diario.status_dia`):
+**Status de cada dia** (`int_ponto_diario`). Vale o primeiro que se aplicar, nesta ordem:
 
-| Status | Condição |
+| Status | Quando |
 |---|---|
-| `DESCANSO` | jornada esperada = 0 |
-| `TRABALHO_EM_DESCANSO` | jornada esperada = 0 com horas trabalhadas (hora extra; fora do escopo) |
-| `AUSENCIA_ABONADA` | déficit de horas com código de abono |
-| `FALTA_INJUSTIFICADA` | dia de trabalho, 0 horas, sem abono |
-| `ATRASO_SAIDA_ANTECIPADA` | déficit **> 10 min** sem abono (CLT art. 58 §1º) |
-| `PRESENTE` | jornada cumprida ou déficit ≤ 10 min |
-| `REGISTRO_INVALIDO` | horas negativas/nulas |
+| Registro inválido | Horas negativas ou vazias |
+| Trabalho em descanso | Dia de folga com horas trabalhadas (hora extra, fora do desconto) |
+| Descanso | Dia de folga pela escala |
+| Ausência abonada | Faltaram horas, mas o dia tem código de abono |
+| Falta injustificada | Dia de trabalho com 0 horas e sem abono |
+| Atraso ou saída antecipada | Faltaram mais de 10 minutos, sem abono |
+| Presente | Jornada cumprida, ou faltaram até 10 minutos |
 
-**Fórmulas do financeiro**, aplicadas literalmente:
-- `Valor Hora = Salário Mensal / Divisor Contratual`
-- `Valor Diária DSR = Valor Hora × (Jornada Semanal / 6)`
-- `Desconto Total = (Horas Faltadas Injustificadas × Valor Hora) + (DSRs Perdidos × Valor Diária DSR)`
+**Fórmulas do financeiro**, usadas exatamente como no briefing:
+- Valor Hora = Salário Mensal / Divisor Contratual
+- Valor Diária DSR = Valor Hora × (Jornada Semanal / 6)
+- Desconto Total = (Horas Faltadas Injustificadas × Valor Hora) + (DSRs Perdidos × Valor Diária DSR)
 
-**Régua disciplinar** (`mart_absenteismo_colaborador.acao_disciplinar_recomendada`), avaliada de cima para baixo:
+**Régua da Política de Consequências**, com os valores exatos pedidos para a coluna `Acao_Disciplinar_Recomendada`:
 
-| Condição | Ação |
+| Condição no período | Ação |
 |---|---|
-| ≥ 4 faltas **ou** ≥ 2 DSRs perdidos em semanas consecutivas | `Suspensão Disciplinar (1 a 3 dias)` |
-| 2 a 3 faltas | `Advertência Escrita` |
-| 1 falta | `Alinhamento em 1-on-1` |
-| 0 faltas | `Sem ação requerida` |
+| 4 ou mais faltas, ou 2 ou mais DSRs perdidos em semanas seguidas | Suspensão Disciplinar (1 a 3 dias) |
+| 2 a 3 faltas | Advertência Escrita |
+| 1 falta | Alinhamento em 1-on-1 |
+| 0 faltas | Sem ação requerida |
 
-As semanas consecutivas são detectadas com *gaps-and-islands* sobre o índice da semana (`int_semanas_dsr`).
+Para achar semanas seguidas com DSR perdido usei a técnica de *gaps and islands* em `int_semanas_dsr`.
 
----
+## 7. Problemas encontrados nos dados
 
-## 7. Ruídos encontrados e tratamento
-
-| # | Ruído | Onde | Tratamento |
+| # | Problema | Arquivo | O que fiz |
 |---|---|---|---|
-| 1 | Salário em 6 formatos: `R$ 2.721,03`, `R$5614`, `2301,08`, `2589.9`, `5.036`, `4200,0` | cadastro | Parser em SQL: vírgula ⇒ padrão BR; `\d{1,3}(\.\d{3})+` ⇒ ponto de milhar (`5.036` = 5036); caso contrário, ponto decimal |
-| 2 | Salário `A combinar` / vazio (10 ativos) e `2.4` (abaixo do mínimo) | cadastro | Imputação pela **mediana do cargo** (premissa P5), sinalizada |
-| 3 | Datas em `AAAA-MM-DD` e `DD/MM/AAAA` | cadastro | Parser pelos dois padrões |
-| 4 | **ID duplicado** `EMP_019` (Gustavo Carvalho × Ana Lima Santos) | cadastro | Mantido o 1º registro (P3) |
-| 5 | Escala vazia (EMP_016, EMP_023) | cadastro | Inferida pela jornada do ponto (P4) |
-| 6 | Gestor desligado (EMP_005 → EMP_051) e TI sem gestor | cadastro | Sinalizado, sem inventar hierarquia (P6) |
-| 7 | **Homônimos** (2× Thiago Pereira, 2× Ana Lima, Rodrigo Souza…) | cadastro | Todos os cruzamentos por ID; gestor exibido como `Nome (ID)` |
-| 8 | **Encoding duplo** (`OperaÃ§Ãµes`) em 23 linhas do cadastro e 2 das escalas | cadastro, escalas | Revertido na ingestão e rastreado por linha (P16) |
-| 9 | Ponto duplicado: 92 dias do EMP_019 (10 com horas divergentes) | ponto | 1 linha por dia; prevalece a de mais horas (P7) |
-| 10 | 7 batidas do EMP_051 **após o desligamento** | ponto | Descartadas (P12) |
-| 11 | Horas negativas (`-0.5`, EMP_011) | ponto | Não vira falta; severidade ALTA (P8) |
-| 12 | Abono grafado diferente (`ATESTADO MEDICO`) | ponto | Padronizado para `ATESTADO_MEDICO` |
-| 13 | `DECLARACAO_HORAS` cobrindo o dia inteiro (EMP_007) | ponto | Abonado e sinalizado para validação (P10) |
-| 14 | Déficits de 3–10 min (65 dias) | ponto | Absorvidos pela tolerância da CLT (P2) |
-| 15 | `flag_dsr = 1` em dias úteis trabalhados | ponto | Flag ignorado; DSR derivado da semana (P15) |
-| 16 | ESC_44H descrita como 8,8h × 5 + 4,4h (= 48,4h) | escalas | Prevalece o contrato de 44h, coerente com o divisor 220 (P11) |
-| 17 | Caracteres corrompidos (`Opera��es`, `advert�ncia`) **no template** | planilha | Irrecuperável (U+FFFD) e fora das colunas que o pipeline escreve: preservado como está (P13) |
+| 1 | Salário escrito de 6 jeitos: `R$ 2.721,03`, `R$5614`, `2301,08`, `2589.9`, `5.036`, `4200,0` | cadastro | Conversão em SQL: com vírgula, formato brasileiro; ponto seguido de 3 dígitos é milhar (`5.036` = 5036); senão, ponto decimal |
+| 2 | Salário `A combinar` ou vazio em 10 ativos, e um `2.4` | cadastro | Mediana do cargo, marcada como estimada (P5) |
+| 3 | Datas em `AAAA-MM-DD` e `DD/MM/AAAA` | cadastro | Leitura dos dois formatos |
+| 4 | ID duplicado: EMP_019 para Gustavo Carvalho e Ana Lima Santos | cadastro | Fica o 1º registro (P3) |
+| 5 | Escala em branco (EMP_016 e EMP_023) | cadastro | Deduzida pela jornada diária no ponto (P4) |
+| 6 | Gestor desligado (EMP_005) e TI sem gestor | cadastro | Marcado, sem trocar o gestor (P6) |
+| 7 | Homônimos (dois Thiago Pereira, duas Ana Lima) | cadastro | Todo cruzamento por ID; gestor aparece como "Nome (ID)" |
+| 8 | Acentos corrompidos (`OperaÃ§Ãµes`) em 23 linhas do cadastro e 2 das escalas | cadastro e escalas | Corrigidos na leitura e registrados por linha (P16) |
+| 9 | Dias repetidos no ponto do EMP_019 (92 dias, 10 com horas diferentes) | ponto | Uma linha por dia, vale a de mais horas (P7) |
+| 10 | 7 marcações do EMP_051 depois do desligamento | ponto | Descartadas (P12) |
+| 11 | Horas negativas (`-0.5`, EMP_011) | ponto | Não viram falta; ficam para validação (P8) |
+| 12 | Abono escrito diferente (`ATESTADO MEDICO`) | ponto | Padronizado para `ATESTADO_MEDICO` |
+| 13 | `DECLARACAO_HORAS` cobrindo o dia inteiro (EMP_007) | ponto | Abonado e marcado para validação (P10) |
+| 14 | Déficits de 3 a 10 minutos (65 dias) | ponto | Não descontados (P2) |
+| 15 | `flag_dsr = 1` em dias de trabalho | ponto | Ignorado; o DSR é calculado pela semana (P15) |
+| 16 | ESC_44H descrita como 8,8h × 5 + 4,4h, que soma 48,4h | escalas | Vale o contrato de 44h, que bate com o divisor 220 (P11) |
+| 17 | Caracteres perdidos no template (`Opera��es`) | planilha | Não há como recuperar e são colunas dos gestores; ficaram como estão (P13) |
 
-Todas as ocorrências ficam em `rh_marts.mart_qualidade_dados` (291 linhas: 20 ALTA, 21 MÉDIA, 250 INFO) e na página 4 do painel.
+Tudo isso está em `rh_marts.mart_qualidade_dados` (291 ocorrências: 20 de severidade alta, 21 média e 250 informativas) e na página 4 do painel.
 
----
+## 8. Premissas
 
-## 8. Premissas e decisões
+O briefing pede para registrar as decisões tomadas onde os dados ou as regras não eram claros. Estas são as minhas. Nenhuma delas substitui algo que o briefing definiu: as fórmulas, a régua e os valores da coluna `Acao_Disciplinar_Recomendada` foram usados exatamente como vieram.
 
-| ID | Premissa | Justificativa |
+| ID | Premissa | Por quê |
 |---|---|---|
-| P1 | Semana do DSR = segunda a domingo; **1 DSR perdido por semana** com ≥ 1 falta injustificada. | Lei 605/49, art. 6º, conforme o briefing. A fórmula `Jornada Semanal / 6` já normaliza escalas com dois dias de descanso (ESC_36H_NOT). |
-| P2 | "Horas faltadas injustificadas" = faltas integrais + atrasos/saídas antecipadas acima de 10 min/dia. Ultrapassada a tolerância, desconta-se o déficit inteiro. | O briefing cita explicitamente quem "sai mais cedo sem avisar". CLT art. 58 §1º e Súmula 366 do TST. O painel mostra os componentes separados, então quem preferir só faltas integrais lê o número direto. |
-| P3 | ID duplicado: vale o **primeiro registro** do arquivo (EMP_019 = Gustavo Carvalho). | É o registro presente na planilha dos gestores. O segundo (Ana Lima Santos) tem cargo de Produção num departamento de Atendimento e salário abaixo da faixa. Deve ser corrigido na origem. |
-| P4 | Escala ausente é inferida pela jornada diária predominante no ponto. | 8,8h ⇒ ESC_44H, 8h ⇒ ESC_40H, 7,2h ⇒ ESC_36H_NOT. Os valores são únicos por escala, então a inferência é determinística. |
-| P5 | Salário ausente/inválido: **mediana do mesmo cargo** entre ativos (fallback: departamento). | Sem salário não há custo, e zerar subestimaria o problema. O valor fica marcado como `IMPUTADO_*` e com severidade ALTA para o RH completar o cadastro. |
-| P6 | Gestor desligado/ausente **não é reatribuído**. | Inventar hierarquia levaria cobrança à pessoa errada. Aparece como "Sem gestor ativo". |
-| P7 | Ponto duplicado com horas divergentes: prevalece o registro com **mais horas**; um abono em qualquer versão é mantido. | Na dúvida gerada por falha de exportação, não penalizar o colaborador. |
-| P8 | Horas negativas **não** são tratadas como falta. | Uma batida negativa indica registro (houve marcação), mas não diz quantas horas foram cumpridas. Se o BP confirmar falta, EMP_011 passa de 1-on-1 para Advertência. |
-| P9 | Atrasos geram desconto de horas, mas **não** geram perda de DSR nem contam na régua. | O briefing e a régua falam em "faltas". Aplicar punição por atraso exigiria uma política explícita. |
-| P10 | Todos os códigos de abono justificam a ausência. `DECLARACAO_HORAS` cobrindo o dia todo é abonada, mas sinalizada. | Declaração de comparecimento normalmente cobre só parte do dia; o BP deve confirmar. |
-| P11 | Jornada semanal para o DSR vem do **contrato** (44/40/36h); 12x36 = média de 42h. | A descrição da ESC_44H soma 48,4h, o que contradiz o próprio contrato e o divisor 220. |
-| P12 | Batidas fora do vínculo (antes da admissão ou após o desligamento) são descartadas. | Não existe obrigação de jornada sem vínculo. |
-| P13 | O Reverse ETL escreve **apenas** `Total_Faltas_Injustificadas`, `Total_DSR_Perdido`, `Acao_Disciplinar_Recomendada` e `Data_Ultimo_Processamento`. | Mesmo colunas de identificação com encoding corrompido não são "corrigidas": a planilha é dos gestores. |
-| P14 | Escopo: colaboradores ativos em algum dia do período; trabalho em dia de descanso fica fora do desconto. | Hora extra é outra política. |
-| P15 | `flag_dsr` não é usado no cálculo. | Ele contradiz a escala em 3 dias e marca só domingo para quem descansa domingo e segunda. |
-| P16 | Correção de encoding é a única transformação feita em Python, na ingestão. | É um problema de decodificação do arquivo e não de conteúdo; cada linha reparada é registrada. |
+| P1 | A semana do DSR vai de segunda a domingo, e uma semana com qualquer falta injustificada perde 1 DSR. | É o que diz a Lei 605/49 citada no briefing. A fórmula "Jornada Semanal / 6" já ajusta escalas com duas folgas. |
+| P2 | "Horas faltadas injustificadas" inclui os dias de falta e também atrasos e saídas antecipadas acima de 10 minutos. Passou dos 10 minutos, desconta o atraso inteiro. | O briefing cita quem "sai mais cedo sem avisar". Os 10 minutos não vêm do briefing: são a tolerância da CLT (art. 58, §1º, e Súmula 366 do TST). O painel mostra faltas, atrasos e DSR separados, então dá para ver o número sem os atrasos. |
+| P3 | Com ID duplicado, vale o primeiro registro do arquivo (EMP_019 = Gustavo Carvalho). | É ele que está na planilha dos gestores. O segundo registro tem cargo de Produção em Atendimento e salário fora da faixa. |
+| P4 | Escala em branco é deduzida pela jornada diária mais comum no ponto. | Cada escala tem uma jornada diária diferente (8,8h, 8h, 7,2h), então não há ambiguidade. |
+| P5 | Salário vazio, não numérico ou abaixo do salário mínimo de 2025 (R$ 1.518) recebe a mediana do cargo; sem cargo comparável, a do departamento. | Sem salário o desconto daria zero e esconderia o problema. O valor do salário mínimo é premissa minha, só para identificar valores claramente errados como `2.4`. |
+| P6 | Gestor desligado ou ausente não é trocado por outro. | Escolher alguém seria cobrar a pessoa errada. Esses casos aparecem como "Sem gestor ativo". |
+| P7 | Dia repetido no ponto: vale o registro com mais horas, e um abono em qualquer versão vale para o dia. | Duplicata é erro de exportação, e o colaborador não deveria pagar por ele. |
+| P8 | Horas negativas não contam como falta. | Houve marcação, então a pessoa estava lá. Se o RH confirmar a falta, o EMP_011 passa de alinhamento para advertência. |
+| P9 | Atraso gera desconto de horas, mas não faz perder DSR nem conta na régua. | A lei e a régua falam em faltas. Punir atraso pediria uma política própria. |
+| P10 | Todo código de abono justifica a ausência. `DECLARACAO_HORAS` no dia inteiro é abonada, mas marcada para validação. | Uma declaração de horas costuma cobrir só parte do dia. |
+| P11 | A jornada semanal vem do contrato (44h, 40h, 36h); para a 12x36 uso a média de 42h. | A descrição da ESC_44H soma 48,4h, o que contradiz o contrato e o divisor. |
+| P12 | Marcações antes da admissão ou depois do desligamento são descartadas. | Sem vínculo não há jornada a cumprir. |
+| P13 | O pipeline escreve só em `Total_Faltas_Injustificadas`, `Total_DSR_Perdido`, `Acao_Disciplinar_Recomendada` e `Data_Ultimo_Processamento`. | O resto da planilha é dos gestores, inclusive os nomes com acento quebrado. |
+| P14 | Entram no cálculo os colaboradores ativos em algum dia do período. Trabalho em dia de folga não entra no desconto. | Hora extra é outra política. |
+| P15 | O campo `flag_dsr` não é usado. | Ele contradiz a escala em vários dias. |
+| P16 | A correção de acentos é a única limpeza feita em Python. | É um problema de leitura do arquivo, não do conteúdo. O resto da limpeza está em SQL. |
 
----
+## 9. Como o Reverse ETL protege o histórico
 
-## 9. Reverse ETL: como o histórico manual é protegido
+No template, as colunas azuis (A a H) são do sistema e as verdes (I a K) são dos gestores. O `src/reverse_etl.py`:
 
-O cabeçalho do template já separa as responsabilidades: colunas **azuis** (A–H) são do sistema e **verdes** (I–K) são dos gestores. O script `src/reverse_etl.py`:
+1. Encontra as colunas pelo nome do cabeçalho, não pela posição. Se faltar alguma, não grava nada.
+2. Cruza os dados pelo ID, nunca pelo nome.
+3. Escreve célula por célula, só nas colunas calculadas, numa única chamada. A planilha nunca é regravada inteira.
+4. Colaborador novo entra numa linha nova, com as colunas dos gestores em branco. Quem não está mais no pipeline continua na planilha como estava.
+5. Salva um backup da planilha antes de gravar.
+6. Depois de gravar, lê a planilha de novo e confere se as colunas dos gestores continuam iguais. Se algo mudou, para com erro.
 
-1. Localiza colunas **pelo nome** do cabeçalho; se a planilha for reordenada, nada é gravado no lugar errado. Se faltar coluna, aborta sem gravar.
-2. Cruza por **ID**, nunca por nome.
-3. Grava **célula a célula** (`batch_update` em 1 chamada) só nas colunas calculadas. A planilha nunca é regravada inteira, então anotações feitas enquanto o job roda sobrevivem.
-4. Colaborador novo entra como linha nova, com as colunas manuais em branco. Linha sem correspondência (ex.: desligado) fica intacta.
-5. Salva **backup** completo antes de gravar (`data/backups/`).
-6. **Relê a planilha** e compara as colunas manuais com o estado anterior. Qualquer divergência gera erro.
-7. `--simular` mostra o plano sem gravar.
-
-Validação no modo local: um diff célula a célula entre o template original e o atualizado mostra alterações **apenas nas colunas E–H** (160 células = 40 linhas × 4), sem nenhuma mudança de formatação.
-
----
+Na prática, comparando a planilha antes e depois, mudaram 160 células (40 linhas × 4 colunas calculadas) e nada mais, nem a formatação.
 
 ## 10. Testes
 
-- **Testes de dados** (`sql/99_tests`, rodam a cada execução): chave única no mart e no fato, domínio da ação, régua revalidada de forma independente, reconciliação de custo fato × mart, parâmetros de cálculo presentes, cobertura de ponto.
-- **Testes unitários** (`pytest`): preservação das colunas manuais, colunas reordenadas, linha nova, linha sem correspondência, aborto por coluna ausente, detecção de histórico alterado e reparo de encoding.
+- **Testes de dados** (`sql/99_tests`, rodam a cada execução): chave única, valores válidos para a ação, régua recalculada de forma independente, soma dos custos por dia batendo com o total por colaborador, salário e jornada preenchidos para todos os ativos, e ponto para todos os ativos.
+- **Testes do Reverse ETL** (`pytest`): colunas dos gestores preservadas, colunas fora de ordem, colaborador novo, colaborador que saiu, coluna faltando, histórico alterado e correção de acentos.
 
----
+## 11. Pontos para o RH confirmar
 
-## 11. Pontos de atenção para o RH
-
-- Completar salário de 10 colaboradores ativos e a escala de 2; corrigir o ID duplicado EMP_019 na origem.
-- Definir gestor para o time de **TI** e substituir o gestor desligado da EMP_005.
-- O **EMP_001** (cargo: Operador de Produção) aparece como gestor de todos os supervisores e coordenadores. Vale confirmar se o cadastro está correto.
-- Antes de aplicar as ações, validar os 3 casos ALTA no ponto: EMP_011 (horas negativas), EMP_007 (declaração de horas no dia todo) e as batidas do EMP_051 após o desligamento.
-- O template recebido tem caracteres corrompidos nas colunas de texto. Recomenda-se reexportar a planilha original em UTF-8.
+- Salário de 10 colaboradores ativos e escala de 2 estão em branco no cadastro, e o ID EMP_019 está duplicado.
+- O time de TI não tem gestor, e o gestor da EMP_005 foi desligado.
+- O EMP_001 está cadastrado como Operador de Produção, mas aparece como gestor de supervisores e coordenadores.
+- Três casos do ponto precisam de conferência antes de aplicar a ação: as horas negativas do EMP_011, a declaração de horas no dia inteiro do EMP_007 e as marcações do EMP_051 depois do desligamento.

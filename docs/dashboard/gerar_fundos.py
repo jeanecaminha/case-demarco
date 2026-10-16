@@ -1,12 +1,12 @@
-"""Gera os fundos de design das páginas do dashboard (Looker Studio).
+"""Gera as imagens de fundo das páginas do painel.
 
-Técnica: o layout (cabeçalho, cartões, títulos, legendas fixas) é desenhado em
-HTML/CSS e renderizado como PNG no tamanho exato do canvas. No Looker Studio, a
-imagem fica atrás de tudo e os gráficos, com fundo transparente, são posicionados
-sobre os cartões nas mesmas coordenadas definidas aqui.
+O Looker Studio tem pouca liberdade de layout, então o cabeçalho, os cartões e
+os títulos são desenhados aqui em HTML e salvos como PNG no tamanho do canvas.
+No painel a imagem fica atrás, e os gráficos (com fundo transparente) ficam em
+cima dos cartões, nas mesmas posições.
 
-Uso:  python docs/dashboard/gerar_fundos.py
-Saída: docs/dashboard/fundo_<pagina>.png (renderizado em 2x para telas retina)
+Uso: python docs/dashboard/gerar_fundos.py  (precisa do Chrome instalado)
+Gera docs/dashboard/fundo_<pagina>.png em 2x, para não ficar borrado em tela de alta resolução.
 """
 from __future__ import annotations
 
@@ -17,7 +17,7 @@ PASTA = Path(__file__).resolve().parent
 CHROME = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
 LARGURA = 1440
 
-# Paleta (dataviz: 3 primeiras cores categóricas validadas para daltonismo, todos os pares)
+# faltas, atrasos e DSR usam cores que continuam distinguíveis para daltônicos
 COR = {
     "plano": "#F3F4F6", "cartao": "#FFFFFF", "navy": "#0F1B2D", "tinta": "#0F1B2D",
     "tinta2": "#4B5563", "muda": "#6B7280", "borda": "rgba(15,27,45,0.08)",

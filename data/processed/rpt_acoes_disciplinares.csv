@@ -1,0 +1,41 @@
+﻿ID_Colaborador,Nome,Departamento,Gestor,Total_Faltas_Injustificadas,Total_DSR_Perdido,Acao_Disciplinar_Recomendada,Motivo_Acao,Desconto_Total
+EMP_022,Tatiana Melo,Atendimento,EMP_024,2,2,Suspensão Disciplinar (1 a 3 dias),2 falta(s) injustificada(s); 2 DSRs perdidos em semanas consecutivas,557.05
+EMP_024,Renata Azevedo,Atendimento,EMP_001,0,0,Sem ação requerida,Nenhuma falta injustificada no período,25.22
+EMP_017,Priscila Fonseca,Atendimento,EMP_024,0,0,Sem ação requerida,Nenhuma falta injustificada no período,0.0
+EMP_023,Sônia Ferreira,Atendimento,EMP_024,0,0,Sem ação requerida,Nenhuma falta injustificada no período,0.0
+EMP_018,Daniela Freitas,Atendimento,EMP_024,0,0,Sem ação requerida,Nenhuma falta injustificada no período,32.67
+EMP_021,Mariana Castro,Atendimento,EMP_024,0,0,Sem ação requerida,Nenhuma falta injustificada no período,0.0
+EMP_019,Gustavo Carvalho,Atendimento,EMP_024,0,0,Sem ação requerida,Nenhuma falta injustificada no período,0.0
+EMP_020,Juliana Reis,Atendimento,EMP_024,0,0,Sem ação requerida,Nenhuma falta injustificada no período,8.95
+EMP_011,Fernanda Torres,Logística,EMP_016,1,1,Alinhamento em 1-on-1,1 falta(s) injustificada(s),190.31
+EMP_014,Henrique Barros,Logística,EMP_016,2,2,Advertência Escrita,2 falta(s) injustificada(s),340.61
+EMP_016,Larissa Teixeira,Logística,EMP_001,5,5,Suspensão Disciplinar (1 a 3 dias),5 falta(s) injustificada(s); 2 DSRs perdidos em semanas consecutivas,2665.45
+EMP_012,Ana Lima,Logística,EMP_016,0,0,Sem ação requerida,Nenhuma falta injustificada no período,36.06
+EMP_015,Eduardo Gomes,Logística,EMP_016,0,0,Sem ação requerida,Nenhuma falta injustificada no período,19.35
+EMP_013,Amanda Lopes,Logística,EMP_016,0,0,Sem ação requerida,Nenhuma falta injustificada no período,55.64
+EMP_009,Marcos Oliveira,Logística,EMP_016,0,0,Sem ação requerida,Nenhuma falta injustificada no período,11.52
+EMP_010,Vanessa Nogueira,Logística,EMP_016,0,0,Sem ação requerida,Nenhuma falta injustificada no período,36.4
+EMP_007,Sabrina Cardoso,Operações,EMP_008,2,2,Advertência Escrita,2 falta(s) injustificada(s),297.25
+EMP_008,Lucas Martins,Operações,EMP_001,3,3,Suspensão Disciplinar (1 a 3 dias),3 falta(s) injustificada(s); 2 DSRs perdidos em semanas consecutivas,1284.81
+EMP_002,Rafael Costa,Operações,EMP_008,4,4,Suspensão Disciplinar (1 a 3 dias),4 falta(s) injustificada(s); 3 DSRs perdidos em semanas consecutivas,1646.77
+EMP_003,Rodrigo Souza,Operações,EMP_008,4,4,Suspensão Disciplinar (1 a 3 dias),4 falta(s) injustificada(s); 3 DSRs perdidos em semanas consecutivas,674.99
+EMP_005,Camila Monteiro,Operações,EMP_051,0,0,Sem ação requerida,Nenhuma falta injustificada no período,0.0
+EMP_006,Beatriz Correia,Operações,EMP_008,0,0,Sem ação requerida,Nenhuma falta injustificada no período,0.0
+EMP_004,Roberta Silveira,Operações,EMP_008,0,0,Sem ação requerida,Nenhuma falta injustificada no período,0.0
+EMP_001,Thiago Pereira,Operações,EMP_008,0,0,Sem ação requerida,Nenhuma falta injustificada no período,7.54
+EMP_025,Alexandre Dias,RH,EMP_032,3,3,Suspensão Disciplinar (1 a 3 dias),3 falta(s) injustificada(s); 2 DSRs perdidos em semanas consecutivas,1081.91
+EMP_029,Pedro Alves,RH,EMP_032,0,0,Sem ação requerida,Nenhuma falta injustificada no período,16.54
+EMP_026,Leonardo Nascimento,RH,EMP_032,0,0,Sem ação requerida,Nenhuma falta injustificada no período,63.84
+EMP_028,Cristina Pinto,RH,EMP_032,0,0,Sem ação requerida,Nenhuma falta injustificada no período,56.85
+EMP_027,Ana Lima,RH,EMP_032,0,0,Sem ação requerida,Nenhuma falta injustificada no período,0.0
+EMP_030,Carlos Mendes,RH,EMP_032,0,0,Sem ação requerida,Nenhuma falta injustificada no período,58.46
+EMP_031,Mônica Machado,RH,EMP_032,0,0,Sem ação requerida,Nenhuma falta injustificada no período,0.0
+EMP_032,Elisa Cunha,RH,EMP_001,0,0,Sem ação requerida,Nenhuma falta injustificada no período,85.34
+EMP_033,Bruno Fernandes,TI,,4,4,Suspensão Disciplinar (1 a 3 dias),4 falta(s) injustificada(s); 2 DSRs perdidos em semanas consecutivas,1500.78
+EMP_036,Vinicius Ribeiro,TI,,0,0,Sem ação requerida,Nenhuma falta injustificada no período,105.82
+EMP_039,João da Silva,TI,,0,0,Sem ação requerida,Nenhuma falta injustificada no período,0.0
+EMP_035,Anderson Rocha,TI,,0,0,Sem ação requerida,Nenhuma falta injustificada no período,87.62
+EMP_034,Diego Santos,TI,,0,0,Sem ação requerida,Nenhuma falta injustificada no período,37.33
+EMP_040,Felipe Lima,TI,,0,0,Sem ação requerida,Nenhuma falta injustificada no período,0.0
+EMP_037,Matheus Araújo,TI,,0,0,Sem ação requerida,Nenhuma falta injustificada no período,63.87
+EMP_038,Gabriel Moreira,TI,,0,0,Sem ação requerida,Nenhuma falta injustificada no período,34.32

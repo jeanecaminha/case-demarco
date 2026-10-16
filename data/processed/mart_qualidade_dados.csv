@@ -1,0 +1,292 @@
+﻿fonte,id_colaborador,data_referencia,tipo_ocorrencia,severidade,valor_original,tratamento_aplicado,ordem_severidade,qtd_alta,qtd_media,qtd_info
+espelho_ponto,EMP_007,2025-07-16,ABONO_REQUER_VALIDACAO,ALTA,DECLARACAO_HORAS,Tratado como abonado (benefício da dúvida); BP deve confirmar a cobertura da declaração,1,1,0,0
+espelho_ponto,EMP_025,2025-06-25,CODIGO_ABONO_NAO_PADRONIZADO,INFO,ATESTADO MEDICO,Padronizado para ATESTADO_MEDICO,3,0,0,1
+base_colaboradores,EMP_051,,DATA_FORMATO_DD_MM_AAAA,INFO,13/07/2024,Convertida para 2024-07-13,3,0,0,1
+base_colaboradores,EMP_019,,DATA_FORMATO_DD_MM_AAAA,INFO,16/05/2021,Convertida para 2021-05-16,3,0,0,1
+base_colaboradores,EMP_019,,DATA_FORMATO_DD_MM_AAAA,INFO,16/05/2021,Convertida para 2021-05-16,3,0,0,1
+base_colaboradores,EMP_009,,DATA_FORMATO_DD_MM_AAAA,INFO,16/09/2023,Convertida para 2023-09-16,3,0,0,1
+base_colaboradores,EMP_029,,DATA_FORMATO_DD_MM_AAAA,INFO,19/10/2022,Convertida para 2022-10-19,3,0,0,1
+base_colaboradores,EMP_017,,DATA_FORMATO_DD_MM_AAAA,INFO,20/08/2023,Convertida para 2023-08-20,3,0,0,1
+base_colaboradores,EMP_011,,DATA_FORMATO_DD_MM_AAAA,INFO,21/04/2021,Convertida para 2021-04-21,3,0,0,1
+base_colaboradores,EMP_005,,DATA_FORMATO_DD_MM_AAAA,INFO,23/08/2021,Convertida para 2021-08-23,3,0,0,1
+base_colaboradores,EMP_039,,DATA_FORMATO_DD_MM_AAAA,INFO,23/11/2020,Convertida para 2020-11-23,3,0,0,1
+base_colaboradores,EMP_023,,DATA_FORMATO_DD_MM_AAAA,INFO,24/04/2020,Convertida para 2020-04-24,3,0,0,1
+base_colaboradores,EMP_035,,DATA_FORMATO_DD_MM_AAAA,INFO,25/03/2021,Convertida para 2021-03-25,3,0,0,1
+base_colaboradores,EMP_013,,DATA_FORMATO_DD_MM_AAAA,INFO,25/07/2023,Convertida para 2023-07-25,3,0,0,1
+base_colaboradores,EMP_031,,DATA_FORMATO_DD_MM_AAAA,INFO,26/06/2021,Convertida para 2021-06-26,3,0,0,1
+base_colaboradores,EMP_053,,DATA_FORMATO_DD_MM_AAAA,INFO,28/10/2023,Convertida para 2023-10-28,3,0,0,1
+espelho_ponto,EMP_010,2025-06-05,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,3 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_035,2025-06-02,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,3.6 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_026,2025-08-19,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,3.6 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_013,2025-07-03,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,4.2 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_037,2025-08-14,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,4.2 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_029,2025-06-04,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,4.2 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_020,2025-06-20,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,4.2 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_040,2025-06-25,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,4.2 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_025,2025-08-13,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,4.2 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_030,2025-07-07,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,4.2 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_005,2025-07-03,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,4.2 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_012,2025-07-14,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,4.8 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_020,2025-08-05,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,4.8 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_024,2025-07-16,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,4.8 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_005,2025-07-18,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,4.8 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_032,2025-06-09,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,4.8 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_022,2025-06-18,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,4.8 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_016,2025-08-14,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,4.8 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_031,2025-08-26,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,4.8 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_034,2025-06-11,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,5.4 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_033,2025-08-19,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,5.4 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_025,2025-08-26,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,5.4 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_004,2025-08-20,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,5.4 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_013,2025-07-23,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,5.4 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_028,2025-07-16,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,5.4 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_038,2025-08-20,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,6 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_035,2025-07-28,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,6 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_006,2025-07-19,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,6 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_005,2025-06-24,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,6 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_017,2025-08-19,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,6.6 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_001,2025-07-30,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,6.6 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_017,2025-07-22,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,6.6 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_005,2025-06-11,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,6.6 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_014,2025-08-21,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,6.6 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_027,2025-08-19,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,6.6 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_034,2025-07-10,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,7.2 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_027,2025-07-29,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,7.2 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_001,2025-08-01,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,7.2 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_003,2025-06-12,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,7.2 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_018,2025-06-25,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,7.2 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_040,2025-06-13,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,7.2 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_036,2025-07-21,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,7.2 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_026,2025-06-02,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,7.2 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_039,2025-06-27,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,7.2 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_032,2025-07-21,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,7.2 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_032,2025-08-22,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,7.2 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_001,2025-06-12,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,7.2 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_002,2025-08-09,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,7.8 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_004,2025-06-27,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,7.8 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_024,2025-08-26,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,7.8 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_008,2025-07-10,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,7.8 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_002,2025-08-29,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,7.8 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_025,2025-06-26,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,7.8 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_039,2025-06-04,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,8.4 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_009,2025-07-02,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,8.4 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_027,2025-08-12,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,8.4 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_033,2025-07-28,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,8.4 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_009,2025-08-30,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,8.4 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_030,2025-08-13,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,8.4 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_015,2025-08-30,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,8.4 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_033,2025-07-08,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,8.4 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_038,2025-06-27,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,8.4 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_013,2025-08-02,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,8.4 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_006,2025-06-10,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,8.4 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+espelho_ponto,EMP_039,2025-08-26,DEFICIT_DENTRO_DA_TOLERANCIA,INFO,8.4 min,Não descontado (CLT art. 58 §1º: até 10 min/dia),3,0,0,1
+base_colaboradores,EMP_019,,ENCODING_REPARADO,INFO,cargo,Texto UTF-8 decodificado como Latin-1 foi revertido na ingestão,3,0,0,1
+base_colaboradores,EMP_009,,ENCODING_REPARADO,INFO,"cargo,departamento",Texto UTF-8 decodificado como Latin-1 foi revertido na ingestão,3,0,0,1
+base_colaboradores,EMP_013,,ENCODING_REPARADO,INFO,"cargo,departamento",Texto UTF-8 decodificado como Latin-1 foi revertido na ingestão,3,0,0,1
+base_colaboradores,EMP_007,,ENCODING_REPARADO,INFO,"cargo,departamento",Texto UTF-8 decodificado como Latin-1 foi revertido na ingestão,3,0,0,1
+base_colaboradores,EMP_052,,ENCODING_REPARADO,INFO,"cargo,departamento",Texto UTF-8 decodificado como Latin-1 foi revertido na ingestão,3,0,0,1
+base_colaboradores,EMP_003,,ENCODING_REPARADO,INFO,"cargo,departamento",Texto UTF-8 decodificado como Latin-1 foi revertido na ingestão,3,0,0,1
+base_colaboradores,EMP_008,,ENCODING_REPARADO,INFO,"cargo,departamento",Texto UTF-8 decodificado como Latin-1 foi revertido na ingestão,3,0,0,1
+base_colaboradores,EMP_012,,ENCODING_REPARADO,INFO,"cargo,departamento",Texto UTF-8 decodificado como Latin-1 foi revertido na ingestão,3,0,0,1
+base_colaboradores,EMP_004,,ENCODING_REPARADO,INFO,"cargo,departamento",Texto UTF-8 decodificado como Latin-1 foi revertido na ingestão,3,0,0,1
+base_colaboradores,EMP_006,,ENCODING_REPARADO,INFO,"cargo,departamento",Texto UTF-8 decodificado como Latin-1 foi revertido na ingestão,3,0,0,1
+base_colaboradores,EMP_015,,ENCODING_REPARADO,INFO,"cargo,departamento",Texto UTF-8 decodificado como Latin-1 foi revertido na ingestão,3,0,0,1
+base_colaboradores,EMP_051,,ENCODING_REPARADO,INFO,"cargo,departamento",Texto UTF-8 decodificado como Latin-1 foi revertido na ingestão,3,0,0,1
+base_colaboradores,EMP_016,,ENCODING_REPARADO,INFO,"cargo,departamento",Texto UTF-8 decodificado como Latin-1 foi revertido na ingestão,3,0,0,1
+base_colaboradores,EMP_005,,ENCODING_REPARADO,INFO,"cargo,departamento",Texto UTF-8 decodificado como Latin-1 foi revertido na ingestão,3,0,0,1
+base_colaboradores,EMP_010,,ENCODING_REPARADO,INFO,"cargo,departamento",Texto UTF-8 decodificado como Latin-1 foi revertido na ingestão,3,0,0,1
+base_colaboradores,EMP_001,,ENCODING_REPARADO,INFO,"cargo,departamento",Texto UTF-8 decodificado como Latin-1 foi revertido na ingestão,3,0,0,1
+base_colaboradores,EMP_002,,ENCODING_REPARADO,INFO,"cargo,departamento",Texto UTF-8 decodificado como Latin-1 foi revertido na ingestão,3,0,0,1
+base_colaboradores,EMP_014,,ENCODING_REPARADO,INFO,departamento,Texto UTF-8 decodificado como Latin-1 foi revertido na ingestão,3,0,0,1
+base_colaboradores,EMP_011,,ENCODING_REPARADO,INFO,departamento,Texto UTF-8 decodificado como Latin-1 foi revertido na ingestão,3,0,0,1
+escalas,ESC_44H,,ENCODING_REPARADO,INFO,descricao,Texto UTF-8 decodificado como Latin-1 foi revertido na ingestão,3,0,0,1
+escalas,ESC_36H_NOT,,ENCODING_REPARADO,INFO,descricao,Texto UTF-8 decodificado como Latin-1 foi revertido na ingestão,3,0,0,1
+base_colaboradores,EMP_039,,ENCODING_REPARADO,INFO,nome,Texto UTF-8 decodificado como Latin-1 foi revertido na ingestão,3,0,0,1
+base_colaboradores,EMP_037,,ENCODING_REPARADO,INFO,nome,Texto UTF-8 decodificado como Latin-1 foi revertido na ingestão,3,0,0,1
+base_colaboradores,EMP_023,,ENCODING_REPARADO,INFO,nome,Texto UTF-8 decodificado como Latin-1 foi revertido na ingestão,3,0,0,1
+base_colaboradores,EMP_031,,ENCODING_REPARADO,INFO,nome,Texto UTF-8 decodificado como Latin-1 foi revertido na ingestão,3,0,0,1
+base_colaboradores,EMP_016,,ESCALA_AUSENTE,MEDIA,(vazio),Inferida pelo padrão de jornada do ponto: ESC_44H,2,0,1,0
+base_colaboradores,EMP_023,,ESCALA_AUSENTE,MEDIA,(vazio),Inferida pelo padrão de jornada do ponto: ESC_36H_NOT,2,0,1,0
+espelho_ponto,EMP_003,2025-08-20,FLAG_DSR_INCONSISTENTE,INFO,flag_dsr=1 em Quarta com jornada de 8.8h,"Ignorado: o DSR é derivado da semana (seg-dom), não do flag",3,0,0,1
+espelho_ponto,EMP_038,2025-07-07,FLAG_DSR_INCONSISTENTE,INFO,flag_dsr=1 em Segunda com jornada de 8h,"Ignorado: o DSR é derivado da semana (seg-dom), não do flag",3,0,0,1
+espelho_ponto,EMP_031,2025-08-15,FLAG_DSR_INCONSISTENTE,INFO,flag_dsr=1 em Sexta com jornada de 8h,"Ignorado: o DSR é derivado da semana (seg-dom), não do flag",3,0,0,1
+base_colaboradores,EMP_005,,GESTOR_DESLIGADO,MEDIA,EMP_051,"Mantido como está; agrupado como ""Sem gestor ativo"" no dashboard",2,0,1,0
+base_colaboradores,EMP_040,,GESTOR_NAO_INFORMADO,MEDIA,(vazio),"Mantido como está; agrupado como ""Sem gestor ativo"" no dashboard",2,0,1,0
+base_colaboradores,EMP_033,,GESTOR_NAO_INFORMADO,MEDIA,(vazio),"Mantido como está; agrupado como ""Sem gestor ativo"" no dashboard",2,0,1,0
+base_colaboradores,EMP_037,,GESTOR_NAO_INFORMADO,MEDIA,(vazio),"Mantido como está; agrupado como ""Sem gestor ativo"" no dashboard",2,0,1,0
+base_colaboradores,EMP_035,,GESTOR_NAO_INFORMADO,MEDIA,(vazio),"Mantido como está; agrupado como ""Sem gestor ativo"" no dashboard",2,0,1,0
+base_colaboradores,EMP_036,,GESTOR_NAO_INFORMADO,MEDIA,(vazio),"Mantido como está; agrupado como ""Sem gestor ativo"" no dashboard",2,0,1,0
+base_colaboradores,EMP_038,,GESTOR_NAO_INFORMADO,MEDIA,(vazio),"Mantido como está; agrupado como ""Sem gestor ativo"" no dashboard",2,0,1,0
+base_colaboradores,EMP_034,,GESTOR_NAO_INFORMADO,MEDIA,(vazio),"Mantido como está; agrupado como ""Sem gestor ativo"" no dashboard",2,0,1,0
+base_colaboradores,EMP_039,,GESTOR_NAO_INFORMADO,MEDIA,(vazio),"Mantido como está; agrupado como ""Sem gestor ativo"" no dashboard",2,0,1,0
+espelho_ponto,EMP_011,2025-06-10,HORAS_INVALIDAS,ALTA,-0.5,Dia não classificado como falta; requer validação do BP com o espelho original,1,1,0,0
+base_colaboradores,EMP_019,,ID_DUPLICADO,ALTA,Ana Lima Santos | Auxiliar de Produção | linha 21,Registro descartado: mantido o 1º registro do arquivo (coerente com a planilha dos gestores),1,1,0,0
+espelho_ponto,EMP_019,2025-08-31,PONTO_DUPLICADO,INFO,horas: 0 | 0,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-06-22,PONTO_DUPLICADO,INFO,horas: 0 | 0,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-08-17,PONTO_DUPLICADO,INFO,horas: 0 | 0,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-08-25,PONTO_DUPLICADO,INFO,horas: 0 | 0,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-06-15,PONTO_DUPLICADO,INFO,horas: 0 | 0,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-06-16,PONTO_DUPLICADO,INFO,horas: 0 | 0,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-07-20,PONTO_DUPLICADO,INFO,horas: 0 | 0,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-08-04,PONTO_DUPLICADO,INFO,horas: 0 | 0,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-07-28,PONTO_DUPLICADO,INFO,horas: 0 | 0,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-07-07,PONTO_DUPLICADO,INFO,horas: 0 | 0,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-06-08,PONTO_DUPLICADO,INFO,horas: 0 | 0,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-07-21,PONTO_DUPLICADO,INFO,horas: 0 | 0,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-08-18,PONTO_DUPLICADO,INFO,horas: 0 | 0,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-07-14,PONTO_DUPLICADO,INFO,horas: 0 | 0,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-07-13,PONTO_DUPLICADO,INFO,horas: 0 | 0,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-06-29,PONTO_DUPLICADO,INFO,horas: 0 | 0,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-06-02,PONTO_DUPLICADO,INFO,horas: 0 | 0,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-06-09,PONTO_DUPLICADO,INFO,horas: 0 | 0,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-08-11,PONTO_DUPLICADO,INFO,horas: 0 | 0,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-06-01,PONTO_DUPLICADO,INFO,horas: 0 | 0,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-08-10,PONTO_DUPLICADO,INFO,horas: 0 | 0,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-08-03,PONTO_DUPLICADO,INFO,horas: 0 | 0,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-07-09,PONTO_DUPLICADO,INFO,horas: 0 | 0,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-06-23,PONTO_DUPLICADO,INFO,horas: 0 | 0,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-06-30,PONTO_DUPLICADO,INFO,horas: 0 | 0,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-07-27,PONTO_DUPLICADO,INFO,horas: 0 | 0,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-06-12,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-06-17,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-08-02,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-08-19,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-07-02,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-06-11,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-07-03,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-08-08,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-06-05,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-07-18,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-06-04,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-07-24,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-07-26,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-06-19,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-07-29,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-07-15,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-06-27,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-08-14,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-07-16,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-07-30,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-07-19,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-07-08,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-06-10,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-06-07,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-07-31,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-06-06,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-07-05,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-06-21,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-07-11,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-07-23,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-07-01,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-06-25,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-08-01,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-07-22,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-08-22,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-06-26,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-08-12,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-08-09,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-08-30,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-06-03,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-08-27,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-07-12,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-08-16,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-08-26,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-08-07,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-06-28,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-07-25,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-07-17,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-08-15,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-06-24,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-08-29,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-08-23,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-08-28,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-08-06,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-06-14,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-06-20,PONTO_DUPLICADO,INFO,horas: 7.2 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,3,0,0,1
+espelho_ponto,EMP_019,2025-08-24,PONTO_DUPLICADO_CONFLITANTE,MEDIA,horas: 0 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,2,0,1,0
+espelho_ponto,EMP_019,2025-08-05,PONTO_DUPLICADO_CONFLITANTE,MEDIA,horas: 5.9 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,2,0,1,0
+espelho_ponto,EMP_019,2025-07-10,PONTO_DUPLICADO_CONFLITANTE,MEDIA,horas: 6.05 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,2,0,1,0
+espelho_ponto,EMP_019,2025-06-13,PONTO_DUPLICADO_CONFLITANTE,MEDIA,horas: 7.06 | 7.2,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,2,0,1,0
+espelho_ponto,EMP_019,2025-07-06,PONTO_DUPLICADO_CONFLITANTE,MEDIA,horas: 7.2 | 0,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,2,0,1,0
+espelho_ponto,EMP_019,2025-08-20,PONTO_DUPLICADO_CONFLITANTE,MEDIA,horas: 7.2 | 7.09,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,2,0,1,0
+espelho_ponto,EMP_019,2025-08-21,PONTO_DUPLICADO_CONFLITANTE,MEDIA,horas: 7.2 | 7.1,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,2,0,1,0
+espelho_ponto,EMP_019,2025-08-13,PONTO_DUPLICADO_CONFLITANTE,MEDIA,horas: 7.2 | 7.1,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,2,0,1,0
+espelho_ponto,EMP_019,2025-07-04,PONTO_DUPLICADO_CONFLITANTE,MEDIA,horas: 7.2 | 7.13,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,2,0,1,0
+espelho_ponto,EMP_019,2025-06-18,PONTO_DUPLICADO_CONFLITANTE,MEDIA,horas: 7.2 | 7.15,Mantida 1 linha por dia; em conflito prevalece a de mais horas trabalhadas,2,0,1,0
+espelho_ponto,EMP_051,2025-06-05,PONTO_FORA_DO_VINCULO,ALTA,horas: 8.8,Descartado: colaborador desligado/inexistente na data,1,1,0,0
+espelho_ponto,EMP_051,2025-06-09,PONTO_FORA_DO_VINCULO,ALTA,horas: 8.8,Descartado: colaborador desligado/inexistente na data,1,1,0,0
+espelho_ponto,EMP_051,2025-06-13,PONTO_FORA_DO_VINCULO,ALTA,horas: 8.8,Descartado: colaborador desligado/inexistente na data,1,1,0,0
+espelho_ponto,EMP_051,2025-06-17,PONTO_FORA_DO_VINCULO,ALTA,horas: 8.8,Descartado: colaborador desligado/inexistente na data,1,1,0,0
+espelho_ponto,EMP_051,2025-06-19,PONTO_FORA_DO_VINCULO,ALTA,horas: 8.8,Descartado: colaborador desligado/inexistente na data,1,1,0,0
+espelho_ponto,EMP_051,2025-06-25,PONTO_FORA_DO_VINCULO,ALTA,horas: 8.8,Descartado: colaborador desligado/inexistente na data,1,1,0,0
+espelho_ponto,EMP_051,2025-06-06,PONTO_FORA_DO_VINCULO,ALTA,horas: 8.8,Descartado: colaborador desligado/inexistente na data,1,1,0,0
+base_colaboradores,EMP_015,,SALARIO_AUSENTE_OU_INVALIDO,ALTA,(vazio),IMPUTADO_MEDIANA_CARGO: R$ 4173.14,1,1,0,0
+base_colaboradores,EMP_007,,SALARIO_AUSENTE_OU_INVALIDO,ALTA,(vazio),IMPUTADO_MEDIANA_CARGO: R$ 2655.47,1,1,0,0
+base_colaboradores,EMP_023,,SALARIO_AUSENTE_OU_INVALIDO,ALTA,(vazio),IMPUTADO_MEDIANA_CARGO: R$ 2424.01,1,1,0,0
+base_colaboradores,EMP_054,,SALARIO_AUSENTE_OU_INVALIDO,INFO,(vazio),IMPUTADO_MEDIANA_CARGO: R$ 4806.64,3,0,0,1
+base_colaboradores,EMP_039,,SALARIO_AUSENTE_OU_INVALIDO,ALTA,(vazio),IMPUTADO_MEDIANA_CARGO: R$ 5268.16,1,1,0,0
+base_colaboradores,EMP_031,,SALARIO_AUSENTE_OU_INVALIDO,ALTA,(vazio),IMPUTADO_MEDIANA_CARGO: R$ 4806.64,1,1,0,0
+base_colaboradores,EMP_053,,SALARIO_AUSENTE_OU_INVALIDO,INFO,2.4,IMPUTADO_MEDIANA_CARGO: R$ 2424.01,3,0,0,1
+base_colaboradores,EMP_030,,SALARIO_AUSENTE_OU_INVALIDO,ALTA,A combinar,IMPUTADO_MEDIANA_CARGO: R$ 8661.02,1,1,0,0
+base_colaboradores,EMP_006,,SALARIO_AUSENTE_OU_INVALIDO,ALTA,A combinar,IMPUTADO_MEDIANA_CARGO: R$ 2301.08,1,1,0,0
+base_colaboradores,EMP_022,,SALARIO_AUSENTE_OU_INVALIDO,ALTA,A combinar,IMPUTADO_MEDIANA_CARGO: R$ 3643.49,1,1,0,0
+base_colaboradores,EMP_038,,SALARIO_AUSENTE_OU_INVALIDO,ALTA,A combinar,IMPUTADO_MEDIANA_CARGO: R$ 6663.18,1,1,0,0
+base_colaboradores,EMP_014,,SALARIO_AUSENTE_OU_INVALIDO,ALTA,A combinar,IMPUTADO_MEDIANA_CARGO: R$ 2303.79,1,1,0,0
+base_colaboradores,EMP_003,,SALARIO_FORMATO_NAO_PADRAO,INFO,"2301,08",Convertido para 2301.08,3,0,0,1
+base_colaboradores,EMP_011,,SALARIO_FORMATO_NAO_PADRAO,INFO,"2303,79",Convertido para 2303.79,3,0,0,1
+base_colaboradores,EMP_019,,SALARIO_FORMATO_NAO_PADRAO,INFO,"3643,49",Convertido para 3643.49,3,0,0,1
+base_colaboradores,EMP_021,,SALARIO_FORMATO_NAO_PADRAO,INFO,4.579,Convertido para 4579,3,0,0,1
+base_colaboradores,EMP_052,,SALARIO_FORMATO_NAO_PADRAO,INFO,"4200,0",Convertido para 4200,3,0,0,1
+base_colaboradores,EMP_005,,SALARIO_FORMATO_NAO_PADRAO,INFO,5.036,Convertido para 5036,3,0,0,1
+base_colaboradores,EMP_029,,SALARIO_FORMATO_NAO_PADRAO,INFO,6.126,Convertido para 6126,3,0,0,1
+base_colaboradores,EMP_013,,SALARIO_FORMATO_NAO_PADRAO,INFO,6.689,Convertido para 6689,3,0,0,1
+base_colaboradores,EMP_035,,SALARIO_FORMATO_NAO_PADRAO,INFO,"6663,18",Convertido para 6663.18,3,0,0,1
+base_colaboradores,EMP_037,,SALARIO_FORMATO_NAO_PADRAO,INFO,7.514,Convertido para 7514,3,0,0,1
+base_colaboradores,EMP_027,,SALARIO_FORMATO_NAO_PADRAO,INFO,"8661,02",Convertido para 8661.02,3,0,0,1
+base_colaboradores,EMP_017,,SALARIO_FORMATO_NAO_PADRAO,INFO,"R$ 2.609,59",Convertido para 2609.59,3,0,0,1
+base_colaboradores,EMP_001,,SALARIO_FORMATO_NAO_PADRAO,INFO,"R$ 2.721,03",Convertido para 2721.03,3,0,0,1
+base_colaboradores,EMP_051,,SALARIO_FORMATO_NAO_PADRAO,INFO,"R$ 2.800,00",Convertido para 2800,3,0,0,1
+base_colaboradores,EMP_009,,SALARIO_FORMATO_NAO_PADRAO,INFO,"R$ 3.838,43",Convertido para 3838.43,3,0,0,1
+base_colaboradores,EMP_025,,SALARIO_FORMATO_NAO_PADRAO,INFO,"R$ 4.774,54",Convertido para 4774.54,3,0,0,1
+base_colaboradores,EMP_055,,SALARIO_FORMATO_NAO_PADRAO,INFO,"R$ 5.000,00",Convertido para 5000,3,0,0,1
+base_colaboradores,EMP_033,,SALARIO_FORMATO_NAO_PADRAO,INFO,"R$ 5.038,98",Convertido para 5038.98,3,0,0,1
+base_colaboradores,EMP_018,,SALARIO_FORMATO_NAO_PADRAO,INFO,R$4388,Convertido para 4388,3,0,0,1
+base_colaboradores,EMP_002,,SALARIO_FORMATO_NAO_PADRAO,INFO,R$5614,Convertido para 5614,3,0,0,1
+base_colaboradores,EMP_026,,SALARIO_FORMATO_NAO_PADRAO,INFO,R$6198,Convertido para 6198,3,0,0,1
+base_colaboradores,EMP_010,,SALARIO_FORMATO_NAO_PADRAO,INFO,R$6619,Convertido para 6619,3,0,0,1
+base_colaboradores,EMP_034,,SALARIO_FORMATO_NAO_PADRAO,INFO,R$7392,Convertido para 7392,3,0,0,1
+espelho_ponto,EMP_020,2025-07-06,TRABALHO_EM_DIA_DE_DESCANSO,INFO,7.2h em Domingo,Sem impacto no desconto; sinalizado para gestão de horas extras,3,0,0,1
+espelho_ponto,EMP_019,2025-07-06,TRABALHO_EM_DIA_DE_DESCANSO,INFO,7.2h em Domingo,Sem impacto no desconto; sinalizado para gestão de horas extras,3,0,0,1
+espelho_ponto,EMP_020,2025-08-24,TRABALHO_EM_DIA_DE_DESCANSO,INFO,7.2h em Domingo,Sem impacto no desconto; sinalizado para gestão de horas extras,3,0,0,1
+espelho_ponto,EMP_019,2025-08-24,TRABALHO_EM_DIA_DE_DESCANSO,INFO,7.2h em Domingo,Sem impacto no desconto; sinalizado para gestão de horas extras,3,0,0,1
+espelho_ponto,EMP_023,2025-06-08,TRABALHO_EM_DIA_DE_DESCANSO,INFO,7.2h em Domingo,Sem impacto no desconto; sinalizado para gestão de horas extras,3,0,0,1
+espelho_ponto,EMP_022,2025-07-07,TRABALHO_EM_DIA_DE_DESCANSO,INFO,7.2h em Segunda,Sem impacto no desconto; sinalizado para gestão de horas extras,3,0,0,1
+espelho_ponto,EMP_023,2025-06-30,TRABALHO_EM_DIA_DE_DESCANSO,INFO,7.2h em Segunda,Sem impacto no desconto; sinalizado para gestão de horas extras,3,0,0,1
+espelho_ponto,EMP_021,2025-06-02,TRABALHO_EM_DIA_DE_DESCANSO,INFO,7.2h em Segunda,Sem impacto no desconto; sinalizado para gestão de horas extras,3,0,0,1
+espelho_ponto,EMP_024,2025-06-16,TRABALHO_EM_DIA_DE_DESCANSO,INFO,7.2h em Segunda,Sem impacto no desconto; sinalizado para gestão de horas extras,3,0,0,1
+espelho_ponto,EMP_016,2025-08-10,TRABALHO_EM_DIA_DE_DESCANSO,INFO,8.8h em Domingo,Sem impacto no desconto; sinalizado para gestão de horas extras,3,0,0,1
+espelho_ponto,EMP_006,2025-06-01,TRABALHO_EM_DIA_DE_DESCANSO,INFO,8.8h em Domingo,Sem impacto no desconto; sinalizado para gestão de horas extras,3,0,0,1
+espelho_ponto,EMP_016,2025-07-27,TRABALHO_EM_DIA_DE_DESCANSO,INFO,8.8h em Domingo,Sem impacto no desconto; sinalizado para gestão de horas extras,3,0,0,1
+espelho_ponto,EMP_014,2025-06-15,TRABALHO_EM_DIA_DE_DESCANSO,INFO,8.8h em Domingo,Sem impacto no desconto; sinalizado para gestão de horas extras,3,0,0,1
+espelho_ponto,EMP_013,2025-08-03,TRABALHO_EM_DIA_DE_DESCANSO,INFO,8.8h em Domingo,Sem impacto no desconto; sinalizado para gestão de horas extras,3,0,0,1
+espelho_ponto,EMP_009,2025-08-17,TRABALHO_EM_DIA_DE_DESCANSO,INFO,8.8h em Domingo,Sem impacto no desconto; sinalizado para gestão de horas extras,3,0,0,1
+espelho_ponto,EMP_015,2025-07-13,TRABALHO_EM_DIA_DE_DESCANSO,INFO,8.8h em Domingo,Sem impacto no desconto; sinalizado para gestão de horas extras,3,0,0,1
+espelho_ponto,EMP_004,2025-06-15,TRABALHO_EM_DIA_DE_DESCANSO,INFO,8.8h em Domingo,Sem impacto no desconto; sinalizado para gestão de horas extras,3,0,0,1
+espelho_ponto,EMP_003,2025-08-24,TRABALHO_EM_DIA_DE_DESCANSO,INFO,8.8h em Domingo,Sem impacto no desconto; sinalizado para gestão de horas extras,3,0,0,1
+espelho_ponto,EMP_008,2025-06-08,TRABALHO_EM_DIA_DE_DESCANSO,INFO,8.8h em Domingo,Sem impacto no desconto; sinalizado para gestão de horas extras,3,0,0,1
+espelho_ponto,EMP_009,2025-06-22,TRABALHO_EM_DIA_DE_DESCANSO,INFO,8.8h em Domingo,Sem impacto no desconto; sinalizado para gestão de horas extras,3,0,0,1
+espelho_ponto,EMP_004,2025-08-31,TRABALHO_EM_DIA_DE_DESCANSO,INFO,8.8h em Domingo,Sem impacto no desconto; sinalizado para gestão de horas extras,3,0,0,1
+espelho_ponto,EMP_005,2025-06-08,TRABALHO_EM_DIA_DE_DESCANSO,INFO,8.8h em Domingo,Sem impacto no desconto; sinalizado para gestão de horas extras,3,0,0,1
+espelho_ponto,EMP_003,2025-06-29,TRABALHO_EM_DIA_DE_DESCANSO,INFO,8.8h em Domingo,Sem impacto no desconto; sinalizado para gestão de horas extras,3,0,0,1
+espelho_ponto,EMP_003,2025-07-27,TRABALHO_EM_DIA_DE_DESCANSO,INFO,8.8h em Domingo,Sem impacto no desconto; sinalizado para gestão de horas extras,3,0,0,1
+espelho_ponto,EMP_030,2025-06-08,TRABALHO_EM_DIA_DE_DESCANSO,INFO,8h em Domingo,Sem impacto no desconto; sinalizado para gestão de horas extras,3,0,0,1
+espelho_ponto,EMP_030,2025-07-20,TRABALHO_EM_DIA_DE_DESCANSO,INFO,8h em Domingo,Sem impacto no desconto; sinalizado para gestão de horas extras,3,0,0,1
+espelho_ponto,EMP_028,2025-06-22,TRABALHO_EM_DIA_DE_DESCANSO,INFO,8h em Domingo,Sem impacto no desconto; sinalizado para gestão de horas extras,3,0,0,1
+espelho_ponto,EMP_036,2025-07-06,TRABALHO_EM_DIA_DE_DESCANSO,INFO,8h em Domingo,Sem impacto no desconto; sinalizado para gestão de horas extras,3,0,0,1
+espelho_ponto,EMP_031,2025-06-29,TRABALHO_EM_DIA_DE_DESCANSO,INFO,8h em Domingo,Sem impacto no desconto; sinalizado para gestão de horas extras,3,0,0,1
+espelho_ponto,EMP_036,2025-08-17,TRABALHO_EM_DIA_DE_DESCANSO,INFO,8h em Domingo,Sem impacto no desconto; sinalizado para gestão de horas extras,3,0,0,1
+espelho_ponto,EMP_030,2025-08-10,TRABALHO_EM_DIA_DE_DESCANSO,INFO,8h em Domingo,Sem impacto no desconto; sinalizado para gestão de horas extras,3,0,0,1
+espelho_ponto,EMP_036,2025-08-03,TRABALHO_EM_DIA_DE_DESCANSO,INFO,8h em Domingo,Sem impacto no desconto; sinalizado para gestão de horas extras,3,0,0,1
+espelho_ponto,EMP_026,2025-08-31,TRABALHO_EM_DIA_DE_DESCANSO,INFO,8h em Domingo,Sem impacto no desconto; sinalizado para gestão de horas extras,3,0,0,1
+espelho_ponto,EMP_036,2025-06-08,TRABALHO_EM_DIA_DE_DESCANSO,INFO,8h em Domingo,Sem impacto no desconto; sinalizado para gestão de horas extras,3,0,0,1
+espelho_ponto,EMP_032,2025-08-17,TRABALHO_EM_DIA_DE_DESCANSO,INFO,8h em Domingo,Sem impacto no desconto; sinalizado para gestão de horas extras,3,0,0,1

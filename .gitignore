@@ -1,0 +1,11 @@
+.env
+*.json
+!package.json
+__pycache__/
+.pytest_cache/
+data/warehouse.duckdb
+data/warehouse.duckdb.wal
+data/backups/
+
+# gerados pelo script dos fundos do painel (só os PNG vão na entrega)
+docs/dashboard/*.html
